@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <title>mind</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- fevicon -->
+  <link rel="icon" href="{% static '' %}images/fevicon.png" type="image/gif" />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="{% static '' %}css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" href="{% static '' %}css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="{% static '' %}css/responsive.css">
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="{% static '' %}css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+</head>
+<!-- body -->
+
+<body>
+
+<div class="row" style="background-color: turquoise; text-align: center; height: 40px; font-size: 18px;">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">wanted to close </div>
+<!--      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"><i class="fa fa-window-close" aria-hidden="true"></i></div>-->
+</div>
+
+
+  <div class="container">
+
+
+      <div id="image_show">
+
+          <img src="{{ get_the_spacific_list.model_Property_and_room_images_1.first.model_Property_and_room_images_1.url }}" style="width: 100%;margin-top: 15px;border: 1px solid black;height: 400px;" />
+
+      </div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10" >
+
+
+
+
+
+
+<div style="text-align: center;">
+          {% for j in get_the_spacific_list.model_Property_and_room_images_1.all %}
+          <img src="{{ j.model_Property_and_room_images_1.url }}" height="40" width="40" onclick="big_image('{{j.model_Property_and_room_images_1.url}}')"/>
+
+          {% endfor %}
+</div>
+
+
+
+
+          <br>
+          <h2>{{get_the_spacific_list.model_Property_Address}}</h2>
+          {% if request.session.session_user_id %}
+          <h6>Email: {{get_the_spacific_list.link_with_user.User_Email}}</h6><br>
+          {% endif %}
+
+          Rent &#36; {{get_the_spacific_list.model_room_Weekly_rent}} / week
+          Bedrooms: {{get_the_spacific_list.model_property_bedrooms}}
+          Bathrooms: {{get_the_spacific_list.model_property_bathrooms}}
+
+
+          <br>
+          About the property
+          <br>
+
+
+          <br>
+          Property accepting of
+          <br>
+          <br>
+          {% if get_the_spacific_list.model_Accepting_Backpackers == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Backpackers</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_Students == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Students</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_Smokers == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Smokers</span>
+
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_LGBTI == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">LGBTI</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_years_olds == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Years olds</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_Children == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Children</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_Pets == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Pets</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_Retirees == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">Retirees</span>
+          {% endif %}
+
+          {% if get_the_spacific_list.model_Accepting_On_welfare == 'on' %}
+          <span style="background-color: #e3e3e3; padding: 7px;  border-radius: 17px;">On welfare</span>
+          {% endif %}
+
+
+
+
+
+
+<br>
+<br>
+<h2>Room overview</h2>
+
+
+Minimum {{get_the_spacific_list.model_Room_availability_Minimum_length_stay}} stay
+
+
+<h2>
+    About the flatmates
+
+</h2>{{get_the_spacific_list.model_introduce_about_your_flatmates}}
+
+
+
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-1 col-lg-1"></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+         <script src="{% static '' %}js/jquery.min.js"></script>
+          <script src="{% static '' %}js/popper.min.js"></script>
+          <script src="{% static '' %}js/bootstrap.bundle.min.js"></script>
+          <script src="{% static '' %}js/jquery-3.0.0.min.js"></script>
+          <script src="{% static '' %}js/plugin.js"></script>
+          <!-- sidebar -->
+          <script src="{% static '' %}js/jquery.mCustomScrollbar.concat.min.js"></script>
+          <script src="{% static '' %}js/custom.js"></script>
+          <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+<!--document.getElementById('carssw').value-->
+
+
+
+
+
+
+
+
+<script>
+
+    function big_image(link_get){
+    console.log('link_get')
+    console.log(link_get)
+
+document.getElementById('image_show').innerHTML = `<img src="${link_get}" style="width: 100%;margin-top: 15px;border: 1px solid black;height: 400px;" />`
+
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>

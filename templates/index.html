@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<div class="row" style="margin-top: 50px;">
+
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="margin: 15px;background-color: whitesmoke; text-align: center; padding: 8px; border-radius: 18px 18px 18px 18px;">
+        <a href="{% url 'flatmate_listing' %}">
+        <p>I need a flatmate</p>
+        <p>List my place</p>
+        </a>
+
+      </div>
+
+
+
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5" style="margin: 15px;background-color: whitesmoke; text-align: center; padding: 8px; border-radius: 18px 18px 18px 18px;">
+        <p>I need a room</p>
+        <p>Find a place</p>
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="row" style="margin-top: 37px;">
+
+      {% for i in get_the_all_list %}
+
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+
+                <a href="{% url 'details_page' i.id %}">
+                <img src="{{ i.model_Property_and_room_images_1.first.model_Property_and_room_images_1.url }}"/>
+                <p>{{i.model_offering_accommodation}}</p>
+                <p>{{i.model_property}}</p>
+                <p>{{i.model_Property_Address}}</p>
+                  </a>
+              </div>
+
+{% endfor %}
+
+
+            </div>
+
+
+
+
+
+
+{% endblock %}
